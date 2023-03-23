@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 @Entity
@@ -20,7 +22,10 @@ public class Producto implements Serializable{
     private String codigo;
     private String descripcion;
     private int precio ;
-    private String fechaLimite;
+
+    private LocalDate fechaLimite;
+
+    private LocalDateTime fechaInicio;
     private String comentario;
     private String categoria;
 
