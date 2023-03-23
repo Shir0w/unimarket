@@ -17,21 +17,34 @@ import java.util.Map;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 public class Persona implements Serializable {
-   @Id
-   @EqualsAndHashCode.Include
-    private String NombreCompleto;
-   private String email;
-   private String cedula;
-    @ElementCollection
-    private Map<String, String> telefono;
-    private String direccion;
-    private String password;
 
-    public Persona(String nombreCompleto, String email, String cedula, String direccion, String password) {
+   @Column (name = "nombreCompleto", unique = false, nullable = false)
+   private String NombreCompleto;
+
+   @Column (name = "email", unique = true, nullable = false)
+   private String email;
+   @Id
+   @Column (name = "cedula", unique = true, nullable = false)
+   @EqualsAndHashCode.Include
+   private String cedula;
+   @ElementCollection
+   @Column (name = "telefono", unique = true, nullable = false)
+   private Map<String, String> telefono;
+   @Column (name = "direccion", unique = false, nullable = true)
+   private String direccion;
+
+   @Column (name = "password", unique = false, nullable = false)
+   private String password;
+
+   @Enumerated(EnumType.STRING)
+   @Column (name = "password", unique = false, nullable = false)
+   private Disponibilidad disponibilidad;
+
+   public Persona(String nombreCompleto, String email, String cedula, String direccion, String password) {
         NombreCompleto = nombreCompleto;
         this.email = email;
         this.cedula = cedula;
         this.direccion = direccion;
         this.password = password;
-    }
+   }
 }
