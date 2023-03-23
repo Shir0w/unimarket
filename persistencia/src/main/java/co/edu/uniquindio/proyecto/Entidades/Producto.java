@@ -19,14 +19,22 @@ import java.util.Map;
 public class Producto implements Serializable{
     @Id
     @EqualsAndHashCode.Include
+    @Column (name = "codigo", unique = true, nullable = false)
     private String codigo;
+    @Column (name = "descripcion", unique = false, nullable = true)
     private String descripcion;
+    @Column (name = "precio", unique = false, nullable = false)
     private int precio ;
-
+    @Column (name = "fechaLimite", unique = false, nullable = false)
     private LocalDate fechaLimite;
 
+    @Column (name = "fechaInicio", unique = false, nullable = false)
     private LocalDateTime fechaInicio;
+
+    @Column (name = "comentario", unique = false, nullable = false)
     private String comentario;
+
+    @Column (name = "categoria", unique = false, nullable = false)
     private String categoria;
 
     public Producto(String codigo, String descripcion, int precio, String comentario, String categoria) {
