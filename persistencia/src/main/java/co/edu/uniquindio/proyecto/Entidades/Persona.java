@@ -35,6 +35,8 @@ public class Persona implements Serializable {
 
    @Column (name = "password", unique = false, nullable = false)
    private String password;
+@ManyToOne
+   private Producto producto;
 
    @Enumerated(EnumType.STRING)
    @Column (name = "password", unique = false, nullable = false)

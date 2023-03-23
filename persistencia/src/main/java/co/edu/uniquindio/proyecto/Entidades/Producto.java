@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import java.util.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -36,6 +37,9 @@ public class Producto implements Serializable{
 
     @Column (name = "categoria", unique = false, nullable = false)
     private String categoria;
+
+    @OneToMany(mappedBy = "producto")
+    private List<Persona> personas;
 
     public Producto(String codigo, String descripcion, int precio, String comentario, String categoria) {
         this.codigo = codigo;
