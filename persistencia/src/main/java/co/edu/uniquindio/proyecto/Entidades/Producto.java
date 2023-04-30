@@ -22,24 +22,24 @@ public class Producto implements Serializable{
     @EqualsAndHashCode.Include
     @Column (name = "codigo", unique = true, nullable = false)
     private String codigo;
+    @Column(name = "nombre", unique = false, nullable = false)
+    private String nombre;
+
+    @Column(name= "unidades", unique = false, nullable = false)
+    private int unidades;
     @Column (name = "descripcion", unique = false, nullable = true)
     private String descripcion;
     @Column (name = "precio", unique = false, nullable = false)
     private int precio ;
     @Column (name = "fechaLimite", unique = false, nullable = false)
-    private LocalDate fechaLimite;
+    private LocalDate fecha_limite;
 
-    @Column (name = "fechaInicio", unique = false, nullable = false)
-    private LocalDateTime fechaInicio;
+    @Column (name = "fechaCreado", unique = false, nullable = false)
+    private LocalDateTime fecha_creado;
 
-    @Column (name = "comentario", unique = false, nullable = false)
-    private String comentario;
+    private String codigo_vendedor;
 
-    @Column (name = "categoria", unique = false, nullable = false)
-    private String categoria;
 
-    @OneToMany(mappedBy = "producto")
-    private List<Persona> personas;
 
     public Producto(String codigo, String descripcion, int precio, String comentario, String categoria) {
         this.codigo = codigo;
@@ -48,4 +48,5 @@ public class Producto implements Serializable{
         this.comentario = comentario;
         this.categoria = categoria;
     }
+
 }
