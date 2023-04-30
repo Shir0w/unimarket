@@ -45,8 +45,6 @@ public class Producto implements Serializable{
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.comentario = comentario;
-        this.categoria = categoria;
     }
 
 }
