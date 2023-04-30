@@ -16,7 +16,7 @@ import java.util.Map;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
-public class Persona implements Serializable {
+public class   Persona implements Serializable {
 
    @Id
    private String codigo;
