@@ -2,6 +2,7 @@ package co.edu.uniquindio.unimarket.entidades;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,7 +21,12 @@ public class Usuario extends Persona implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     private String codigo;
+
+    @Column(nullable = false, length = 150, unique = false)
     private String direccion;
+
+
+    @Column(nullable = false, unique = false)
     private Integer telefono;
 
     public Usuario(String codigo, String direccion, Integer telefono) {

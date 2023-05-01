@@ -19,13 +19,13 @@ public class Persona implements Serializable {
    @EqualsAndHashCode.Include
    private String codigo;
 
-   @Column (name = "nombre", unique = false, nullable = false)
+   @Column (unique = false, nullable = false)
    private String nombre;
 
-   @Column (name = "email", unique = true, nullable = false)
+   @Column (unique = true, nullable = false)
    private String email;
 
-   @Column (name = "password", unique = false, nullable = false)
+   @Column (unique = false, nullable = false)
    private String password;
 
    public Persona(String codigo, String nombre, String email, String password) {

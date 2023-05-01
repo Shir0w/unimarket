@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.persistence.metamodel.IdentifiableType;
+import javax.validation.constraints.Future;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -18,25 +19,25 @@ import java.time.LocalDateTime;
 public class Producto implements Serializable{
     @Id
     @EqualsAndHashCode.Include
-    @Column (name = "codigo", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
-    @Column(name = "nombre", unique = false, nullable = false)
+    @Column(unique = false, nullable = false)
     private String nombre;
 
-    @Column(name= "unidades", unique = false, nullable = false)
+    @Column(unique = false, nullable = false)
     private int unidades;
-    @Column (name = "descripcion", unique = false, nullable = true)
+    @Column (unique = false, nullable = true)
     private String descripcion;
-    @Column (name = "precio", unique = false, nullable = false)
+    @Column (unique = false, nullable = false)
     private int precio ;
 
-    @Column(name = "activo", unique = false, nullable = false)
+    @Column(unique = false, nullable = false)
     private boolean activo;
 
-    @Column (name = "fechaCreado", unique = false, nullable = false)
+    @Column (unique = false, nullable = false, columnDefinition= "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime fechaCreado;
-    @Column (name = "fechaLimite", unique = false, nullable = false)
+    @Column (unique = false, nullable = false)
+    @Future
     private LocalDate fechaLimite;
 
     public Producto(String nombre, int unidades, String descripcion, int precio, boolean activo, LocalDateTime fechaCreado, LocalDate fechaLimite) {
