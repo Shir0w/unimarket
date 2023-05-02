@@ -1,9 +1,10 @@
 package co.edu.uniquindio.unimarket.test;
 
-
-import co.edu.uniquindio.unimarket.entidades.Producto;
+import co.edu.uniquindio.unimarket.entidades.Comentario;
+import co.edu.uniquindio.unimarket.entidades.Imagen;
 import co.edu.uniquindio.unimarket.entidades.Usuario;
-import co.edu.uniquindio.unimarket.repositorios.ProductoRepo;
+import co.edu.uniquindio.unimarket.repositorios.ComentarioRepo;
+import co.edu.uniquindio.unimarket.repositorios.ImagenRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -19,31 +20,19 @@ import java.util.stream.Collectors;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+public class ImagenTest {
 
-public class ProductoTest {
     @Autowired
-    private ProductoRepo productoRepo;
+    private ImagenRepo imagenRepo;
 
     @Test
-    public void registrarTest(){
-
-    }
-
+    @Sql("classpath:datos.sql")
     public void paginarListaTest(){
 
         Pageable paginador = PageRequest.of(0,3);
-        Page<Producto> lista = productoRepo.findAll(paginador);
+        Page<Imagen> lista = imagenRepo.findAll(paginador);
 
         System.out.println(lista.stream().collect(Collectors.toList()));
     }
 
-    @Test
-    @Sql("classpath:datos.sql")
-    public void OrdenarListaTest(){
-
-
-        List<Producto> lista = productoRepo.findAll(Sort.by("nombre"));
-
-        System.out.println(lista);
-    }
 }
