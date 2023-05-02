@@ -10,7 +10,8 @@ import java.util.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = true)
+
 
 
 public class Usuario extends Persona implements Serializable {
@@ -22,16 +23,25 @@ public class Usuario extends Persona implements Serializable {
     private Integer telefono;
 
     @OneToMany(mappedBy = "usuario")
+    @ToString.Exclude
     private List<Producto> listaProductos;
 
     @OneToMany(mappedBy = "usuario")
+    @ToString.Exclude
     private List<Compra> listaCompras;
 
     @ManyToMany(mappedBy = "usuarioFavorito")
     private List<Producto> productoFavorito;
 
     @OneToMany(mappedBy = "usuario")
+    @ToString.Exclude
     private List<Comentario> listaComentarios;
+
+    public Usuario(String codigo, String nombre, String email, String password, String direccion, Integer telefono) {
+        super(codigo, nombre, email, password);
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
 
 
 }

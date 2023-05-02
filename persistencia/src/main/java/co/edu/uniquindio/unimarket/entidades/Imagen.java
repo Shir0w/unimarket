@@ -21,7 +21,7 @@ public class Imagen implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idImagen;
+    private Integer idImagen;
 
     @Column(nullable = false)
     private String ruta;
