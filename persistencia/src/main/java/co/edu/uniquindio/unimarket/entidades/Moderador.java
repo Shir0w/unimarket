@@ -10,11 +10,12 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = true)
 
 public class Moderador extends Persona implements Serializable {
 
     @OneToMany(mappedBy = "moderador")
+    @ToString.Exclude
     private List<ProductoModerador> listaProductoModerador;
 
 }

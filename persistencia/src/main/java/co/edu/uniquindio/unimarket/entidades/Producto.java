@@ -28,7 +28,7 @@ public class Producto implements Serializable{
     private String nombre;
 
     @Column(unique = false, nullable = false)
-    private int unidades;
+    private Integer unidades;
     @Column (unique = false, nullable = true)
     private String descripcion;
     @Column (unique = false, nullable = false, scale = 2)
@@ -52,6 +52,7 @@ public class Producto implements Serializable{
     private Usuario usuario;
 
     @OneToMany(mappedBy = "producto")
+    @ToString.Exclude
     private List<Imagen> listaImagenes;
 
     @ManyToMany
@@ -59,23 +60,32 @@ public class Producto implements Serializable{
     private List<Usuario> usuarioFavorito;
 
     @OneToMany(mappedBy = "producto")
+    @ToString.Exclude
     private List<DetalleCompra> listaDetalleCompra;
 
     @OneToMany(mappedBy = "producto")
+    @ToString.Exclude
     private List<Comentario> listaComentarios;
 
     @OneToMany(mappedBy = "producto")
+    @ToString.Exclude
     private List<ProductoModerador> listaProductoModerador;
 
 
-
-    public Producto(String nombre, int unidades, String descripcion, int precio, boolean activo, LocalDateTime fechaCreado, LocalDate fechaLimite) {
+    public Producto(Integer codigo, String nombre, int unidades, double precio, boolean activo, LocalDateTime fechaCreado, LocalDate fechaLimite, Categoria categoria, Usuario usuario, List<Imagen> listaImagenes, List<Usuario> usuarioFavorito, List<DetalleCompra> listaDetalleCompra, List<Comentario> listaComentarios, List<ProductoModerador> listaProductoModerador) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.unidades = unidades;
-        this.descripcion = descripcion;
         this.precio = precio;
         this.activo = activo;
         this.fechaCreado = fechaCreado;
         this.fechaLimite = fechaLimite;
+        this.categoria = categoria;
+        this.usuario = usuario;
+        this.listaImagenes = listaImagenes;
+        this.usuarioFavorito = usuarioFavorito;
+        this.listaDetalleCompra = listaDetalleCompra;
+        this.listaComentarios = listaComentarios;
+        this.listaProductoModerador = listaProductoModerador;
     }
 }

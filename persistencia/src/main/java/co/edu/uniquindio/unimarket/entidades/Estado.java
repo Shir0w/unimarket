@@ -25,6 +25,7 @@ public class Estado implements Serializable {
     private String nombre;
 
     @OneToMany(mappedBy = "estado")
+    @ToString.Exclude
     private List<ProductoModerador> listaProductoModerador;
 
 

@@ -10,9 +10,11 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
-@ToString
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @MappedSuperclass
+@AllArgsConstructor
+@ToString
+
 
 public class Persona implements Serializable {
 
@@ -29,10 +31,5 @@ public class Persona implements Serializable {
    @Column (unique = false, nullable = false, length = 100)
    private String password;
 
-   public Persona(String codigo, String nombre, String email, String password) {
-      this.codigo = codigo;
-      this.nombre = nombre;
-      this.email = email;
-      this.password = password;
-   }
+
 }
