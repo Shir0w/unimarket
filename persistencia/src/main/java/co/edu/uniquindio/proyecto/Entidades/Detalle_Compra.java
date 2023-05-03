@@ -24,11 +24,8 @@ public class Detalle_Compra implements Serializable {
 
 
 
-<<<<<<< HEAD
     public Detalle_Compra(String codigo, int unidades, double precio_producto ) {
-=======
-    public Detalle_Compra(String codigo, int unidades, double precio_producto) {
->>>>>>> 9b1b5af779e08a073e2cde482ef2b0404312cd3c
+
         this.codigo = codigo;
         this.unidades = unidades;
         this.precio_producto = precio_producto;
