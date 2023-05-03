@@ -18,7 +18,11 @@ public class UsuarioServicioTest {
 
     @Autowired
         private UsuarioServicio usuarioServicio;
+
+
+
 @Test
+
         private void registarTest(){
 
             Usuario u = new Usuario("123","edison","edisonpenelargo@gmail.com","feliz123","car19");
@@ -33,7 +37,7 @@ public class UsuarioServicioTest {
 
         }
 @Test
-        public void eliminar (){
+        public void eliminarTest (){
 
             try {
                 usuarioServicio.eleminarUsuario("124");
@@ -45,12 +49,37 @@ public class UsuarioServicioTest {
             }
 
         }
-
-       public void  listar () throws Exception {
+        @Test
+       public void  listarTest () throws Exception {
         Usuario u = new Usuario("123","edison","edisonpenelargo@gmail.com","feliz123","car19");
 
         List<Usuario> lista =usuarioServicio.listarUsuarios();
         lista.forEach (System.out::println);
 
        }
+
+       @Test
+    public void actualizarTest(){
+    try {
+        Usuario u = usuarioServicio.obtenerUsuario("123");
+        u.setPassword("&(/_2732");
+        usuarioServicio.actualizarUsuario(u);
+
+        Usuario modificado = usuarioServicio.obtenerUsuario("123");
+        Assertions.assertEquals("&(/_2732", modificado.getPassword());
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+       }
+
+        @Test
+
+    public void loginTest() {
+            try {
+                Usuario usuario = usuarioServicio.iniciarSesion("edisonpenelargo@gmail.com", "feliz123");
+            } catch (Exception e){
+        Assertions.assertTrue(false, e.getMessage());
+    }
+        }
+
 }

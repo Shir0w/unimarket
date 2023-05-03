@@ -4,6 +4,7 @@ package co.edu.uniquindio.unimarket.test;
 import co.edu.uniquindio.unimarket.entidades.Producto;
 import co.edu.uniquindio.unimarket.entidades.Usuario;
 import co.edu.uniquindio.unimarket.repositorios.ProductoRepo;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -45,5 +46,8 @@ public class ProductoTest {
         List<Producto> lista = productoRepo.findAll(Sort.by("nombre"));
 
         System.out.println(lista);
+
     }
+
+
 }

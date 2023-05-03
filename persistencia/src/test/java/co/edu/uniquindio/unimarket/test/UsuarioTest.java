@@ -60,7 +60,7 @@ public class UsuarioTest {
     @Test
     @Sql("classpath:datos.sql")
     public void filtrarNombreTest() {
-        List<Usuario> usuario = usuarioRepo.findAllByNombre("pepe");
+        List<Usuario> usuario = usuarioRepo.findAllByNombreContains("pepe");
         usuario.forEach(System.out::println);
     }
     @Test
