@@ -19,7 +19,7 @@ public class Usuario extends Persona implements Serializable {
     @Column(nullable = false, length = 150, unique = false)
     private String direccion;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = true)
     private Integer telefono;
 
     @OneToMany(mappedBy = "usuario")
@@ -37,7 +37,7 @@ public class Usuario extends Persona implements Serializable {
     @ToString.Exclude
     private List<Comentario> listaComentarios;
 
-    public Usuario(String codigo, String nombre, String email, String password, String direccion, Integer telefono) {
+    public Usuario(String codigo, String nombre, String email, String password, String direccion) {
         super(codigo, nombre, email, password);
         this.direccion = direccion;
         this.telefono = telefono;

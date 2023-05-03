@@ -13,12 +13,9 @@ import java.util.Optional;
 
 public interface ProductoRepo extends JpaRepository<Producto, Integer> {
 
-<<<<<<< HEAD
 
-
-=======
     Optional<Producto> findByNombre (String nombre);
 
     Page<Producto> findAll(Pageable paginador);
->>>>>>> 9b1b5af779e08a073e2cde482ef2b0404312cd3c
+
 }
