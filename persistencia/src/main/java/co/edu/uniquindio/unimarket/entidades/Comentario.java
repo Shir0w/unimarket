@@ -35,6 +35,7 @@ public class Comentario implements Serializable {
     private Usuario usuario;
 
 
+    private int calificacion;
 
 
 }
