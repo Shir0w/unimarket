@@ -24,7 +24,7 @@ public class Detalle_Compra implements Serializable {
 
 
 
-    public Detalle_Compra(String codigo, int unidades, double precio_producto, ) {
+    public Detalle_Compra(String codigo, int unidades, double precio_producto ) {
         this.codigo = codigo;
         this.unidades = unidades;
         this.precio_producto = precio_producto;
