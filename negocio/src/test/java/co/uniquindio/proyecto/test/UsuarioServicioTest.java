@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @SpringBootTest (classes = NegocioApplication.class)
 @Transactional
 
@@ -30,11 +32,11 @@ public class UsuarioServicioTest {
 
 
         }
-
+@Test
         public void eliminar (){
 
             try {
-                usuarioServicio.eleminarUsuario("123");
+                usuarioServicio.eleminarUsuario("124");
                 Assertions.assertTrue(true);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -43,4 +45,12 @@ public class UsuarioServicioTest {
             }
 
         }
+
+       public void  listar () throws Exception {
+        Usuario u = new Usuario("123","edison","edisonpenelargo@gmail.com","feliz123","car19");
+
+        List<Usuario> lista =usuarioServicio.listarUsuarios();
+        lista.forEach (System.out::println);
+
+       }
 }
